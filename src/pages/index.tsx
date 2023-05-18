@@ -33,8 +33,10 @@ export default function Home() {
       authorization: process.env.NEXT_PUBLIC_ASSEMBLY_AI_KEY,
     };
 
-    const response = await axios.post(`${base_url}/upload`, blob, { headers });
+    const response = await axios.post(`api/upload`, blob, { headers });
+    console.log(response);
     const upload_url = response.data.upload_url;
+    console.log(upload_url); 
 
     const data = {
       audio_url: upload_url,
