@@ -6,7 +6,7 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Footer from "./components/Footer";
 import { Button } from "@chakra-ui/react";
-import { CiMicrophoneOff, CiMicrophoneOn, CiPause1 } from "react-icons/ci";
+import { CiMicrophoneOff, CiMicrophoneOn } from "react-icons/ci";
 
 export default function Home() {
   const [transcriptionText, setTranscriptionText] = useState("");
@@ -129,7 +129,6 @@ export default function Home() {
           </Button>
         </div>
       </div>
-
       <Footer />
     </>
   );
