@@ -10,7 +10,6 @@ export default function Header() {
         p={2}
         verticalAlign="center"
         as="header"
-        position="fixed"
       >
         <Text fontSize="4xl" color="green.400" ml="5">Speak</Text>
         <Text fontSize="4xl" color="black">Wise</Text>
