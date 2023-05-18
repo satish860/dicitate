@@ -43,16 +43,19 @@ export default function Hero() {
                 zIndex: -1,
               }}
             >
-              Speak once,
+              Speak Wise,
             </Text>
             <br />
             <Text as={"span"} color={"green.400"}>
-              use everywhere!
+              Text Wiser!
             </Text>
           </Heading>
           <Text color={"gray.500"}>
-            Welcome to Speakwise! Say goodbye to manual transcriptions and let our app do
-            the heavy lifting for you. Start converting audio to text today!
+            Introducing Speakwise! Whether it's capturing lectures, interviews,
+            or brainstorming sessions, Speakwise empowers you to effortlessly
+            transcribe your ideas and insights with speed and accuracy. Break
+            free from the confines of audio and unlock the power of your words
+            with Speakwise – the wise choice for seamless conversion.
           </Text>
           <Stack
             spacing={{ base: 4, sm: 6 }}
