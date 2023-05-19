@@ -5,7 +5,7 @@ import { useAudioRecorder } from "react-audio-voice-recorder";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Footer from "./components/Footer";
-import { Button } from "@chakra-ui/react";
+import { Box, Button } from "@chakra-ui/react";
 import { CiMicrophoneOff, CiMicrophoneOn } from "react-icons/ci";
 
 export default function Home() {
@@ -59,7 +59,7 @@ export default function Home() {
       } else if (transcriptionResult.status === "error") {
         throw new Error(`Transcription failed: ${transcriptionResult.error}`);
       } else {
-        await new Promise((resolve) => setTimeout(resolve, 3000));
+        await new Promise((resolve) => setTimeout(resolve, 100));
       }
     }
   };
@@ -79,41 +79,53 @@ export default function Home() {
 
   return (
     <>
-      <Header />
-      <Hero />
       <div
         className="App"
         style={{
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          marginTop: "25px",
         }}
       >
-        {isRecording ? (
-          <button onClick={handleRecordingComplete}>
-            <CiMicrophoneOff size={60} color="green" />
-          </button>
-        ) : (
-          <button onClick={startRecording}>
-            <CiMicrophoneOn size={60} color="green" />
-          </button>
-        )}
-
-        <div
-          style={{
-            height: "20vh",
-            width: "50vw",
-            borderRadius: "md",
-            borderColor: "gray.300",
-            borderWidth: "1px",
-            padding: "2",
-            overflow: "auto",
-          }}
+        <Box
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          height="100vh"
+          w="100%"
+          // bgGradient="linear(red.100 0%, orange.100 25%, yellow.100 50%)"
+          // bgGradient = "linear(to right, rgb(251, 113, 133), rgb(217, 70, 239), rgb(99, 102, 241) 100%)"
+          bgGradient = "radial-gradient(at center bottom, rgb(253, 230, 138), rgb(124, 58, 237), rgb(12, 74, 110))"
+          flexDirection="column"
         >
-          {transcriptionText}
-        </div>
-        <div
+          {isRecording ? (
+            <button onClick={handleRecordingComplete}>
+              <CiMicrophoneOff size={80} color="black" />
+            </button>
+          ) : (
+            <button onClick={startRecording}>
+              <CiMicrophoneOn size={80} color="black" />
+            </button>
+          )}
+
+          <div
+            style={{
+              height: "auto",
+              width: "50vw",
+              borderRadius: "md",
+              borderColor: "transparent",
+              borderWidth: "1px",
+              padding: "2",
+              overflow: "auto",
+              fontSize: "18px",
+              marginTop: "2rem", // Add margin-top for spacing
+            }}
+          >
+            {transcriptionText}
+          </div>
+        </Box>
+
+        {/* <div
           style={{
             display: "flex",
             justifyContent: "flex-end",
@@ -121,15 +133,14 @@ export default function Home() {
             marginBottom: "8px",
           }}
         >
-          <Button onClick={handleCopy} mr={2} leftIcon={<CopyIcon />}>
+          {/* <Button onClick={handleCopy} mr={2} leftIcon={<CopyIcon />}>
             Copy
           </Button>
           <Button onClick={handleDelete} leftIcon={<DeleteIcon />}>
             Delete
-          </Button>
-        </div>
+          </Button> */}
+        {/* </div>  */}
       </div>
-      <Footer />
     </>
   );
 }
